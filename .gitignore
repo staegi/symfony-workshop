@@ -1,0 +1,17 @@
+vendor
+var/cache/*
+!var/cache/.gitkeep
+var/log/*
+!var/log/.gitkeep
+var/sessions/
+.env
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
