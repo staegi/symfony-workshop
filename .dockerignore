@@ -1,0 +1,15 @@
+docker-compose.yml
+README.md
+.gitignore
+.git
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+vendor
+var/cache/*
+var/log/*
+var/sessions/
+.env
+.env.local
+.env.*.local

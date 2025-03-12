@@ -1,0 +1,24 @@
+erDiagram
+    EVENT ||--o{ PARTICIPANT : participates
+
+    EVENT {
+        id INT PK "Event unique identifier"
+        institution_id INT "Event institution ID"
+        title VARCHAR(64) "Event title"
+        description TEXT "Event description"
+        code VARCHAR(10) "Event code"
+        is_active BOOL "Event activation flag"
+        starts_at DATETIME "Event start time"
+        ends_at DATETIME "Event end time"
+        created_at DATETIME "Event creation time"
+        updated_at DATETIME "Event last update time"
+    }
+    PARTICIPANT {
+        id INT PK "Participant unique identifier"
+        event_id INT FK "Event unique identifier"
+        firstname VARCHAR(255) "Participant firstname"
+        surname VARCHAR(255) "Participant surname"
+        password VARCHAR(255) "Participant password"
+        created_at DATETIME "Participant creation time"
+        updated_at DATETIME "Participant last update time"
+    }
