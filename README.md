@@ -1,23 +1,19 @@
 # Symfony Workshop
 
-## Zweite Aufgabe: Model erstellen 
+## Zweite Aufgabe: Lösung 
 
-Mit folgendem Kommando starten Sie einen Dialog, um eine Entität zu erstellen:
-
-``` shell
-docker compose exec -it php bin/console make:entity 
-```
-
-Das muss man für jede Entität erneut machen. Man sollte jedoch mit den Entitäten starten, die keinen Fremdschlüssel haben. Zudem sollten die Felder mit dem Erstell- und Aktualisierungsdatum jeweils mit den [Timestampables][1] implementiert werden. Dafür gibt es ein Trait namens `TimestampableEntity`, dass man einfach benutzen kann. Somit kann man das im Dialog vernachlässigen und muss nur am Ende das Trait in den Entitäten einfügen. Die Getter für Booleans muss man leider nachbearbeiten, weil der Maker die Datenbankfelder mit Präfix `is_` doppelt moppelt was den Präfix beim Getter von `isIs` ergibt, z.B. `isIsEnabled()`. Das sollte aber nur `isEnabled()` heißen.
-
-## Die Lösung
-
-Legen Sie Ihre Änderungen im Stash ab und schauen Sie sich die Lösung an:
+Schauen Sie sich die Lösung an:
 
 ``` shell
-git add .
-git stash
-git checkout task/2/solution 
+open src/Entity/*.php -a PHPStorm
 ```
 
-[1]: https://github.com/doctrine-extensions/DoctrineExtensions/blob/main/doc/timestampable.md#configuring-timestampable-objects
+Die Lösung wird die Grundlage für die dritte Aufgabe sein.
+
+## Dritte Aufgabe
+
+Wechseln sie zur dritten Aufgabe mit:
+
+``` shell
+git checkout task/3/start 
+```
