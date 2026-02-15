@@ -1,28 +1,23 @@
-# Symfony-Workshop
+# Symfony Workshop
 
-## Erste Aufgabe: Lösung 
+## Zweite Aufgabe: Model erstellen 
 
-Diese Aufgabe basiert auf [diesem ER-Modell][1]. Schauen Sie sich gerne die Lösung einmal an:
-
-``` shell
-open migrations/* -a PHPStorm
-```
-
-Die Lösung wird die Grundlage für die zweite Aufgabe sein. Daher führen Sie die Migration bitte aus, damit die Datenbankstruktur entsprechend vorbereitet ist:
+Mit folgendem Kommando starten Sie einen Dialog, um eine Entität zu erstellen:
 
 ``` shell
-docker compose exec -it php bin/console doctrine:migrations:migrate -n
+docker compose exec -it php bin/console make:entity 
 ```
 
-Im Webbrowser können Sie die Datenbank auch per phpMyAdmin unter [localhost:8080][2] betrachten.
+Das muss man für jede Entität erneut machen. Man sollte jedoch mit den Entitäten starten, die keinen Fremdschlüssel haben. Zudem sollten die Felder mit dem Erstell- und Aktualisierungsdatum jeweils mit den [Timestampables][1] implementiert werden. Dafür gibt es ein Trait namens `TimestampableEntity`, dass man einfach benutzen kann. Somit kann man das im Dialog vernachlässigen und muss nur am Ende das Trait in den Entitäten einfügen. Die Getter für Booleans muss man leider nachbearbeiten, weil der Maker die Datenbankfelder mit Präfix `is_` doppelt moppelt was den Präfix beim Getter von `isIs` ergibt, z.B. `isIsEnabled()`. Das sollte aber nur `isEnabled()` heißen.
 
-## Zweite Aufgabe
+## Die Lösung
 
-Wechseln sie zur zweiten Aufgabe mit:
+Legen Sie Ihre Änderungen im Stash ab und schauen Sie sich die Lösung an:
 
 ``` shell
-git checkout task/2/start 
+git add .
+git stash
+git checkout task/2/solution 
 ```
 
-[1]: https://mermaid.live/edit#pako:eNqVVF1rwjAU_SshTxMUtjH30LdOO1b2YXFFxihIaFINtEmXD8dQ__uS2tbU6dzy0t57zrn3knPbNUw5JtCDRIwpWghUJAyYE8yClxhsNoMBX4PIn8bhKIx8k_JAiYSiKS2RIjJhLn29C-yhGIQmEz2CBAYrwhTQjH5oYgAT0IwSkUCHzqSiSivK2byWNjoHAuHYFZl0TsDMn44e_OnF7U2v1VSIS8VEpoKWVZE4eNtXdwCXby-lrXx1ua9sgc7gco5SRVcE3E0mTy2tyqGqXZajhauQytyfUSkw9uMgDp-DVlVBZvii04IwfJxugB_kVBDjCz7KrzA70qFIl_ikKEdS1YSObrt7uKtxwv6o2ZdzS0Bsw8b--z9uTkaFVAwVe7uuh8PeQduW1DFCi3O6muKqSiTlJxf4N1nDOW-Mq_qnPa70pEmwDwsiCkSx-cQrfxKolsQyPPOKSYZ0rizdUpFW_PWLpdBTQpM-FFwvltDLUC5NtKtf_yXarOn_znkTb78BdkJbLg
-[2]: http://localhost:8080/index.php?route=/table/structure&db=symfony 
+[1]: https://github.com/doctrine-extensions/DoctrineExtensions/blob/main/doc/timestampable.md#configuring-timestampable-objects
