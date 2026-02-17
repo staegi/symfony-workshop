@@ -1,17 +1,22 @@
 # Symfony Workshop
 
-## Dritte Aufgabe: Lösung 
+## Vierte Aufgabe: Teilnehmer hinzufügen 
 
-Schauen Sie sich die Lösung an:
+Die Aufgabe ist es nun ein weiteres Command zu schreiben, mit dem ein Eintrag in die Tabelle `participants` vornimmt. Dazu kann man wie folgt ein Command erstellen:
 
 ``` shell
-open src/Command/EventCreateCommand.php -a PHPStorm
+docker compose exec -it php bin/console make:command event:add-participant
 ```
 
-## Vierte Aufgabe 
+Hier muss ebenfalls der `EntityManager` zur Verfügung gestellt werden.
 
-Wechseln sie zur vierten Aufgabe mit:
+## Die Lösung 
+
+Legen Sie Ihre Änderungen im Stash ab und schauen Sie sich die Lösung an:
+
 
 ``` shell
-git checkout task/4/start
+git add .
+git stash
+git checkout task/4/solution
 ```
