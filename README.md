@@ -1,19 +1,30 @@
 # Symfony Workshop
 
-## Zweite Aufgabe: Lösung 
+## Dritte Aufgabe: Event erstellen 
 
-Schauen Sie sich die Lösung an:
+Die Aufgabe ist es nun ein Command zu schreiben, mit dem einen Eintrag in die Tabelle `events` vornimmt. Dazu kann man wie folgt ein Command erstellen: 
 
 ``` shell
-open src/Entity/*.php -a PHPStorm
+docker compose exec -it php bin/console make:command event:create
 ```
 
-Die Lösung wird die Grundlage für die dritte Aufgabe sein.
+Damit du hier den EntityManager zur Verfügung hast, musst du folgenden Konstruktor ergänzen:
 
-## Dritte Aufgabe
+    public function __construct(private EntityManagerInterface $entityManager)
+    {
+        parent::__construct();
+    }
 
-Wechseln sie zur dritten Aufgabe mit:
+Damit kannst du das neue Objekt dann persistieren:
+    
+    $this->entityManager->persist($event);
+
+## Die Lösung 
+
+Legen Sie Ihre Änderungen im Stash ab und schauen Sie sich die Lösung an:
 
 ``` shell
-git checkout task/3/start 
+git add .
+git stash
+git checkout task/3/solution
 ```
